@@ -1,0 +1,610 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                    %
+% BASIC INTRODUCTION TO BREAKTHROUGH %
+% ================================== %
+%                                    %
+% Created:  September 2015           %
+% Modified: August 2017              %
+% By:       Carlos Luna-Mota         %
+%                                    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%% LIBRERIAS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[a4paper,12pt]{article}
+\usepackage[latin1]{inputenc}
+\usepackage{fullpage}
+\usepackage[parfill]{parskip}
+\usepackage{othelloboard}           % A simple 8x8 diagram drawing library
+\usepackage{xspace}
+\usepackage[usenames]{xcolor}
+\usepackage{cclicenses}             %   Creative Commons License symbols
+\usepackage[pdftex, unicode=true, pdfpagelayout=TwoPageRight, pdfstartview={Fit}, pagebackref=true,
+    pdftitle={Basic Introduction to Breakthrough}, pdfauthor={Carlos Luna-Mota}]{hyperref}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%% COMMANDOS PROPIOS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\BT}{\textbf{Breakthrough}\xspace}  % A macro for the game's name.
+\newcommand{\OLD}[1]{{\color{red} #1}}          % A macro for deleted text
+\newcommand{\NEW}[1]{{\color{green} #1}}        % A macro for inserted text    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%%% PAG 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \title{Basic Introduction to Breakthrough}
+    \author{Carlos Luna-Mota \\ Version 0.9}
+    \date{}
+    \maketitle
+
+    \BT is a clever abstract game invented by Dan Troyka in 2000.  In \BT, two uniform armies confront each other on a checkerboard and start a merciless battle, capturing enemies and advancing ranks as the game progresses.  Retreating is not even an option in this game, and the final victory will be for the first player who \emph{breaks through} the enemy defenses.
+
+    This document provides an overview of the game rules and their tactical implications as well as some basic hints on \BT strategy.
+
+    \section{Rules}
+
+    \begin{minipage}[c]{0.36\linewidth}
+        \begin{center}
+            \begin{othelloboardnorefs}{0.75}
+                \gridrefs
+                \othelloarrayfirstrow	{1}{1}{1}{1}{1}{1}{1}{1}
+                \othelloarraysecondrow	{1}{1}{1}{1}{1}{1}{1}{1}
+                \othelloarraythirdrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarrayfourthrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarrayfifthrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarraysixthrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarrayseventhrow	{2}{2}{2}{2}{2}{2}{2}{2}
+                \othelloarrayeighthrow	{2}{2}{2}{2}{2}{2}{2}{2}
+            \end{othelloboardnorefs}
+        \end{center}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[c]{0.62\linewidth}
+        %To play you need a rectangular board and a suitable number of pieces in two colors.
+
+        \BT was originally played on a $7\!\!\times\!\!7$ board with 14 pieces per player; however, since it won the 2001 \emph{$8\!\!\times\!\!8$ Game Design Competition} sponsored by the Abstract Games Magazine and the Strategy Gaming Society, the $8\!\!\times\!\!8$ version with 16 pieces per player is considered standard.  Advanced players might enjoy the more complex $10\!\!\times\!\!10$ version with 30 pieces per player.
+
+        The standard game starts with the first two rows in front of each player filled with his pieces (see the figure). Players alternate moving one of their own pieces per turn, trying to reach the opposite side of the board.  The first player to do so will be declared the winner.
+    \end{minipage}
+
+    \begin{minipage}[c]{0.36\linewidth}
+        \begin{center}
+            \begin{othelloboardnorefs}{0.75}
+                %\gridrefs
+                %\dotmarkings
+                % pieces
+                \othelloarrayfirstrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarraysecondrow	{0}{0}{0}{0}{0}{1}{0}{1}
+                \othelloarraythirdrow	{0}{2}{0}{0}{0}{0}{2}{0}
+                \othelloarrayfourthrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarrayfifthrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarraysixthrow	{0}{2}{2}{0}{0}{1}{1}{0}
+                \othelloarrayseventhrow	{0}{2}{0}{0}{0}{0}{2}{0}
+                \othelloarrayeighthrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                % annotations
+                \annotationsfirstrow	{} {} {} {} {} {} {} {}
+                \annotationssecondrow	{{\sffamily m}}{{\sffamily m}}{{\sffamily m}}{} {} {{\sffamily x}}{{\sffamily m}}{{\sffamily x}}
+                \annotationsthirdrow	{} {\textbf{1}}{} {} {} {} {\textbf{3}}{}
+                \annotationsfourthrow	{} {} {} {} {} {} {} {}
+                \annotationsfifthrow	{} {} {} {} {} {} {} {}
+                \annotationssixthrow	{{\sffamily m}}{} {} {} {} {{\sffamily x}}{} {{\sffamily m}}
+                \annotationsseventhrow	{} {\textbf{2}}{} {} {} {} {\textbf{4}}{}
+                \annotationseighthrow	{} {} {} {} {} {} {} {}
+            \end{othelloboardnorefs}
+        \end{center}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[c]{0.62\linewidth}
+        A piece can move forward or diagonally forward to an adjacent empty cell.  Alternatively, it can capture an enemy piece diagonally forward (as chess pawns do).  Captures are neither compulsory nor can be \emph{chained}.
+
+        In the figure, piece \textbf{1} can move freely, whereas piece \textbf{2} has two of their three possible moves blocked by friendly pieces.  Piece \textbf{3} can move directly forward or capture any of the enemy pieces, whereas piece \textbf{4} can capture or move diagonally but is unable to move forward.
+
+        Note that White's pieces move and capture in the opposite direction.
+    \end{minipage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+%%% PAG 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \section{Basic Concepts}
+
+    \BT can be seen as a battle between enhanced chess pawns, but it is nonetheless a race at heart.  From its simple movement rules we can derive some key ideas:
+
+    \begin{itemize}
+        \item A piece can only be blocked by friendly pieces.  The only way an adversary can stop an enemy piece from reaching his home row is capturing it (or reaching the opponent's home row first).
+        \item \BT cannot end in a draw.  From the previous point we can deduce that the most advanced piece of each player will always have an available move, and cycles are impossible as pieces can only advance.
+        \item Being unable to move laterally, pieces are limited to the right triangle directly in front of them.  A piece can only affect and be affected by pieces in its \emph{reachable region}.  Since pieces must necessarily advance and their reachable regions shrink with every move, their defensive capacity will be weakened as the game progresses and any defensive formation will collapse at some point.
+    \end{itemize}
+
+    \begin{minipage}[c]{0.36\linewidth}
+        \begin{center}
+            \begin{othelloboardnorefs}{0.75}
+                %\gridrefs
+                %\dotmarkings
+                % pieces
+                \othelloarrayfirstrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarraysecondrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarraythirdrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarrayfourthrow	{0}{0}{0}{1}{0}{0}{0}{0}
+                \othelloarrayfifthrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarraysixthrow	{0}{0}{0}{0}{0}{0}{2}{0}
+                \othelloarrayseventhrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarrayeighthrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                % annotations
+                \annotationsfirstrow	{} {$\bullet$} {$\bullet$} {$\bullet$} {$\bullet$} {$\bullet$} {$\bullet$} {$\bullet$}
+                \annotationssecondrow	{} {} {$\bullet$} {$\bullet$} {$\bullet$} {$\bullet$}{$\bullet$}{$\bullet$}
+                \annotationsthirdrow	{} {} {} {$\bullet$} {$\bullet$} {$\bullet$} {$\bullet$}{$\bullet$}
+                \annotationsfourthrow	{} {} {} {$\star$} {$\bullet$} {$\bullet$} {$\bullet$} {$\bullet$}
+                \annotationsfifthrow	{} {} {$\star$} {$\star$} {$\star$} {$\bullet$} {$\bullet$} {$\bullet$}
+                \annotationssixthrow	{} {$\star$} {$\star$} {$\star$} {$\star$} {$\star$} {$\bullet$} {}
+                \annotationsseventhrow	{$\star$} {$\star$} {$\star$} {$\star$} {$\star$} {$\star$} {$\star$} {}
+                \annotationseighthrow	{$\star$} {$\star$} {$\star$} {$\star$} {$\star$} {$\star$} {$\star$} {$\star$}
+            \end{othelloboardnorefs}
+        \end{center}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[c]{0.62\linewidth}
+        In \BT, two enemy pieces either are \emph{mutually reachable} (if their reachable regions still overlap) or will remain \emph{mutually unreachable} for the rest of the game.  Mutually unreachable pieces cannot affect each other and should be ignored when reading a board position.
+
+        The figure on the left shows the reachable regions of two mutually unreachable pieces.
+    \end{minipage}
+
+    \section{\BT Tactics}
+
+    In spite of being all governed by the same movement rules, \BT pieces behave quite differently when they are isolated, in a orthogonal formation or in a diagonal formation.  In this section we are going to review all three cases:
+
+    \begin{minipage}[c]{0.36\linewidth}
+        \begin{center}
+            \begin{othelloboardnorefs}{0.75}
+                %\gridrefs
+                %\dotmarkings
+                % pieces
+                \othelloarrayfirstrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarraysecondrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarraythirdrow	{0}{1}{0}{0}{0}{0}{2}{0}
+                \othelloarrayfourthrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarrayfifthrow	{0}{2}{0}{0}{0}{0}{1}{0}
+                \othelloarraysixthrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarrayseventhrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarrayeighthrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                % annotations
+                \annotationsfirstrow	{} {} {} {} {} {} {2}{}
+                \annotationssecondrow	{} {} {} {} {} {} {1}{}
+                \annotationsthirdrow	{} {} {} {} {} {} {} {}
+                \annotationsfourthrow	{} {1}{} {} {} {} {} {}
+                \annotationsfifthrow	{} {} {2}{} {} {} {} {}
+                \annotationssixthrow	{} {3}{} {} {} {} {1}{}
+                \annotationsseventhrow	{} {} {} {} {} {} {2}{}
+                \annotationseighthrow	{} {} {} {} {} {} {3}{}
+            \end{othelloboardnorefs}
+        \end{center}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[c]{0.62\linewidth}
+        \textbf{Individual pieces} are characterized for being fast (they are able to cross the board in few turns) and agile (they are able to skirt around a single adversary without slowing down or being captured, as shown in White's sequence on the left).
+
+        In fact, when a piece has less than two enemies inside its reachable region, it cannot be stopped, and the game becomes a race where having the most advanced piece leads to the victory.
+    \end{minipage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+%%% PAG 3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \begin{minipage}[c]{0.36\linewidth}
+        \begin{center}
+            \begin{othelloboardnorefs}{0.75}
+                %\gridrefs
+                %\dotmarkings
+                % pieces
+                \othelloarrayfirstrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarraysecondrow	{0}{1}{0}{0}{0}{0}{1}{0}
+                \othelloarraythirdrow	{0}{2}{0}{0}{0}{0}{0}{0}
+                \othelloarrayfourthrow	{0}{2}{0}{0}{0}{2}{2}{0}
+                \othelloarrayfifthrow	{0}{0}{0}{1}{0}{0}{0}{0}
+                \othelloarraysixthrow	{0}{0}{0}{2}{0}{0}{0}{0}
+                \othelloarrayseventhrow	{0}{0}{2}{0}{2}{0}{0}{0}
+                \othelloarrayeighthrow	{0}{2}{0}{2}{0}{2}{0}{0}
+                % annotations
+                \annotationsfirstrow	{} {} {} {} {} {} {} {}
+                \annotationssecondrow	{$\bullet$} {} {$\bullet$} {} {} {} {} {}
+                \annotationsthirdrow	{$\bullet$}{{\sffamily c}} {$\bullet$}{} {$\bullet$}{$\bullet$}{$\bullet$}{$\bullet$}
+                \annotationsfourthrow	{} {{\sffamily c}} {} {} {} {{\sffamily p}} {{\sffamily p}} {}
+                \annotationsfifthrow	{} {} {} {} {} {} {} {}
+                \annotationssixthrow	{} {} {} {} {1}{} {} {}
+                \annotationsseventhrow	{} {} {} {2}{} {} {} {}
+                \annotationseighthrow	{} {} {3}{} {} {} {} {}
+            \end{othelloboardnorefs}
+        \end{center}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[c]{0.62\linewidth}
+        Since individual pieces can be easily sidestepped (or captured), it is necessary for two or more pieces to work coordinately to stop the enemy's advance.  \textbf{Orthogonal formations} are the most basic defensive structures.
+
+        Vertical and horizontal rows (called \emph{columns} and \emph{phalanxes} respectively) generate a protective barrier that can block the advance of an enemy piece (as shown in the figure).  In contrast, the huge diagonal formation below can be crossed easily by White since Black's pieces are not threatening the marked path (note that White's \textbf{1} before Black's \textbf{2} is unstoppable).
+    \end{minipage}
+
+    \begin{minipage}[c]{0.36\linewidth}
+        \begin{center}
+            \begin{othelloboardnorefs}{0.75}
+                %\gridrefs
+                %\dotmarkings
+                % pieces
+                \othelloarrayfirstrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarraysecondrow	{0}{0}{0}{0}{0}{0}{1}{0}
+                \othelloarraythirdrow	{1}{0}{0}{0}{0}{0}{0}{1}
+                \othelloarrayfourthrow	{0}{2}{2}{0}{0}{2}{2}{0}
+                \othelloarrayfifthrow	{0}{0}{0}{0}{0}{2}{2}{0}
+                \othelloarraysixthrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarrayseventhrow	{0}{1}{0}{0}{0}{0}{0}{0}
+                \othelloarrayeighthrow	{0}{2}{2}{0}{0}{0}{0}{0}
+                % annotations
+                \annotationsfirstrow	{} {} {} {} {} {} {} {}
+                \annotationssecondrow	{} {} {} {} {} {} {} {}
+                \annotationsthirdrow	{{\sffamily a}}{} {} {} {} {} {} {{\sffamily c}}
+                \annotationsfourthrow	{} {} {} {} {} {} {$\bullet$} {$\bullet$}
+                \annotationsfifthrow	{} {} {} {} {} {} {} {}
+                \annotationssixthrow	{} {} {} {} {} {} {} {}
+                \annotationsseventhrow	{} {{\sffamily b}}{} {} {} {} {} {}
+                \annotationseighthrow	{} {} {} {} {} {} {} {}
+            \end{othelloboardnorefs}
+        \end{center}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[c]{0.62\linewidth}
+        Pieces forming a column or a phalanx do not protect each other and can be forced to move by an attacker.  Bigger formations (\emph{blocks}) are more stable and retain their stopping power even under attack.
+
+        In the figure, White's \textbf{a} must be answered, breaking the phalanx formation.  White's \textbf{b} must also be answered, but this time the phalanx can be transformed into a column rather than broken.  Finally, White's \textbf{c} can be ignored, since the two marked cells are still defended by black pieces and White's piece will not be allowed to pass through this second line of defenders.
+    \end{minipage}
+
+    In spite of being useless for defensive purposes, \textbf{diagonal formations} are fundamental to disrupt enemy defenses.  A single piece attacking a defensive formation will be captured immediately without further consequences and the defensive breakage may not compensate for the loss of the attacking piece.  In contrast, if the attacking piece is guarded by a friendly piece, the defending player may be forced to break its formation without capturing.
+
+    \begin{minipage}[c]{0.36\linewidth}
+        \begin{center}
+            \begin{othelloboardnorefs}{0.75}
+                %\gridrefs
+                %\dotmarkings
+                % pieces
+                \othelloarrayfirstrow	{0}{0}{0}{0}{0}{1}{1}{1}
+                \othelloarraysecondrow	{0}{1}{0}{0}{0}{0}{1}{0}
+                \othelloarraythirdrow	{1}{0}{0}{0}{0}{0}{0}{1}
+                \othelloarrayfourthrow	{0}{2}{2}{0}{0}{0}{2}{0}
+                \othelloarrayfifthrow	{0}{0}{0}{0}{0}{0}{2}{0}
+                \othelloarraysixthrow	{0}{1}{0}{1}{0}{0}{0}{0}
+                \othelloarrayseventhrow	{0}{0}{1}{0}{0}{0}{0}{0}
+                \othelloarrayeighthrow	{0}{2}{2}{2}{0}{0}{0}{0}
+                % annotations
+                \annotationsfirstrow	{} {} {} {} {} {} {$\bullet$} {}
+                \annotationssecondrow	{} {$\bullet$} {} {} {} {} {} {}
+                \annotationsthirdrow	{{\sffamily a}} {{\sffamily b}} {} {} {} {} {{\sffamily d}} {{\sffamily c}}
+                \annotationsfourthrow	{} {$\bullet$} {} {} {} {} {} {}
+                \annotationsfifthrow	{} {} {} {} {} {} {} {}
+                \annotationssixthrow	{} {$\bullet$} {} {$\bullet$} {} {} {} {}
+                \annotationsseventhrow	{} {} {{\sffamily e}} {} {} {} {} {}
+                \annotationseighthrow	{} {$\bullet$} {} {$\bullet$} {} {} {} {}
+            \end{othelloboardnorefs}
+        \end{center}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[c]{0.62\linewidth}
+        After White's \textbf{a}, Black may prefer to move forward to \textbf{b} and avoid the confrontation instead of exchanging the marked pieces.
+
+        White's \textbf{c} must be answered with Black's \textbf{d}, pinning the marked piece but allowing the others to pass through Black's column.
+
+        White's \textbf{e} will force the balanced exchange of the marked pieces, breaking Black's defensive formation and allowing the remaining white piece to skirt around Black's and win.
+    \end{minipage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+%%% PAG 4 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \section{\BT Strategy}
+
+    Once the basic tactical principles are understood, strategic considerations will play a fundamental role.
+
+    \begin{minipage}[c]{0.36\linewidth}
+        \begin{center}
+            \begin{othelloboardnorefs}{0.75}
+                %\gridrefs
+                %\dotmarkings
+                % pieces
+                \othelloarrayfirstrow	{1}{0}{0}{0}{0}{1}{0}{0}
+                \othelloarraysecondrow	{1}{0}{0}{1}{0}{0}{0}{1}
+                \othelloarraythirdrow	{2}{0}{0}{1}{0}{0}{0}{2}
+                \othelloarrayfourthrow	{0}{0}{0}{2}{0}{0}{0}{0}
+                \othelloarrayfifthrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarraysixthrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarrayseventhrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarrayeighthrow	{0}{0}{0}{0}{0}{0}{0}{2}
+                % annotations
+                \annotationsfirstrow	{} {} {} {} {} {} {} {}
+                \annotationssecondrow	{} {$\bullet$} {} {} {} {$\bullet$} {} {}
+                \annotationsthirdrow	{{\sffamily \textbf{a}}} {} {$\bullet$} {} {$\bullet$} {} {} {{\sffamily \textbf{b}}}
+                \annotationsfourthrow	{} {} {} {{\sffamily \textbf{c}}} {} {} {} {}
+                \annotationsfifthrow	{} {} {} {} {} {} {} {}
+                \annotationssixthrow	{} {} {} {} {} {} {} {}
+                \annotationsseventhrow	{} {} {} {} {} {} {} {}
+                \annotationseighthrow	{} {} {} {} {} {} {} {{\sffamily \textbf{d}}}
+            \end{othelloboardnorefs}
+        \end{center}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[c]{0.62\linewidth}
+        The rules of \BT promote an aggressive style.  Very often, a single attacking piece is able to \textbf{pin several defenders}, which means that, unless the defender has a great \textbf{material advantage}, he may run out of safe moves and lose.  Keeping your reinforcement routes open and avoiding being blocked by your own pieces is also important in terms of \textbf{tempo}.
+
+        Black's \textbf{a} and \textbf{b} are unable to break White's defensive formations on their own, and White's central column is guarding the reinforcement routes that will allow \textbf{c} to help its friends.  However, all of White's pieces are pinned and moving any one of them will lead to a quick defeat.
+    \end{minipage}
+
+    Apart from keeping a global material balance, it is also important to keep the \textbf{local material balance} at every stage of the game, since breakthroughs occur when the attacking player is able to accumulate enough offensive power to overwhelm the defenses at their weakest point.
+
+    \begin{minipage}[c]{0.36\linewidth}
+        \begin{center}
+            \begin{othelloboardnorefs}{0.75}
+                %\gridrefs
+                %\dotmarkings
+                % pieces
+                \othelloarrayfirstrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarraysecondrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarraythirdrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarrayfourthrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarrayfifthrow	{0}{0}{0}{1}{0}{1}{0}{0}
+                \othelloarraysixthrow	{0}{0}{2}{2}{1}{2}{2}{0}
+                \othelloarrayseventhrow	{2}{2}{2}{0}{2}{0}{2}{0}
+                \othelloarrayeighthrow	{2}{2}{2}{2}{0}{2}{2}{2}
+                % annotations
+                \annotationsfirstrow	{} {} {} {} {} {} {} {}
+                \annotationssecondrow	{} {} {} {} {} {} {} {}
+                \annotationsthirdrow	{} {} {} {} {} {} {} {}
+                \annotationsfourthrow	{} {} {} {} {} {} {} {}
+                \annotationsfifthrow	{} {} {} {$\bullet$} {} {$\bullet$} {} {}
+                \annotationssixthrow	{} {} {} {} {$\bullet$} {} {} {}
+                \annotationsseventhrow	{} {} {} {} {} {} {} {}
+                \annotationseighthrow	{} {} {$\bullet$} {} {} {} {$\bullet$} {}
+            \end{othelloboardnorefs}
+        \end{center}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[c]{0.62\linewidth}
+        The most obvious type of local material balance is the \textbf{left-right balance}. In that sense, there is a trade-off between keeping your backup forces far enough to maximize their reach and close enough to your other pieces to be helpful in case of a counterattack.
+
+        There is, however, another local material balance to take into account: \textbf{the even-odd balance}.  In the figure, Black's position seems strong enough to stop White's attack, but it is White's turn, and there are only two black pieces defending the attack lines of the three white pieces. Can you spot the optimal play for White?
+    \end{minipage}
+
+    \begin{minipage}[c]{0.36\linewidth}
+        \begin{center}
+            \begin{othelloboardnorefs}{0.75}
+                %\gridrefs
+                %\dotmarkings
+                % pieces
+                \othelloarrayfirstrow	{1}{1}{1}{1}{1}{1}{1}{1}
+                \othelloarraysecondrow	{0}{0}{1}{0}{0}{1}{0}{0}
+                \othelloarraythirdrow	{0}{1}{1}{1}{1}{1}{1}{0}
+                \othelloarrayfourthrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarrayfifthrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarraysixthrow	{0}{2}{2}{0}{0}{2}{2}{0}
+                \othelloarrayseventhrow	{0}{2}{2}{2}{2}{2}{2}{0}
+                \othelloarrayeighthrow	{0}{2}{2}{2}{2}{2}{2}{0}
+            \end{othelloboardnorefs}
+        \end{center}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[c]{0.62\linewidth}
+        The figure on the left shows two possible openings for the first six turns.  White's opening leaves his home row intact (striving for flexibility in the defense) and builds a large wall in his third row that can gain control of the center of the board on the next few turns.  Black's opening builds two solid $3\!\times\!2$ defensive blocks that can resist many attacks without losing their strength. However, building those blocks concedes the central rows and the initiative to White.
+
+        Novice players may feel more comfortable with Black's solid opening, whereas expert players may prefer White's more aggressive style.
+    \end{minipage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+%%% PAG 5 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \section{Problems}
+
+    \textbf{Black to play and win}.  Find the best lines of play for both players and determine which pieces (if any) can be safely removed from the board while ensuring Black's victory.
+
+    \begin{minipage}[c]{0.32\linewidth} \begin{center} \begin{othelloboard}{0.66}
+                \othelloarrayfirstrow	{0}{0}{0}{0}{0}{1}{1}{1}
+                \othelloarraysecondrow	{0}{0}{0}{0}{0}{1}{1}{1}
+                \othelloarraythirdrow	{0}{0}{0}{0}{1}{0}{0}{0}
+                \othelloarrayfourthrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarrayfifthrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarraysixthrow	{0}{0}{0}{2}{0}{0}{0}{0}
+                \othelloarrayseventhrow	{2}{2}{2}{0}{0}{0}{0}{0}
+                \othelloarrayeighthrow	{2}{2}{2}{0}{0}{0}{0}{0}
+    \end{othelloboard} \end{center} \end{minipage}
+    \begin{minipage}[c]{0.32\linewidth} \begin{center} \begin{othelloboard}{0.660}
+                \othelloarrayfirstrow	{0}{0}{1}{0}{1}{0}{1}{0}
+                \othelloarraysecondrow	{0}{1}{0}{1}{0}{1}{0}{1}
+                \othelloarraythirdrow	{0}{0}{1}{0}{1}{0}{1}{0}
+                \othelloarrayfourthrow	{0}{1}{0}{1}{2}{1}{0}{1}
+                \othelloarrayfifthrow	{0}{0}{1}{2}{0}{2}{1}{0}
+                \othelloarraysixthrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarrayseventhrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarrayeighthrow	{0}{0}{0}{0}{0}{0}{0}{0}
+    \end{othelloboard} \end{center} \end{minipage}
+    \begin{minipage}[c]{0.32\linewidth} \begin{center} \begin{othelloboard}{0.660}
+                \othelloarrayfirstrow	{1}{1}{0}{0}{0}{0}{0}{0}
+                \othelloarraysecondrow	{1}{1}{1}{1}{0}{0}{0}{1}
+                \othelloarraythirdrow	{0}{1}{1}{0}{0}{0}{0}{1}
+                \othelloarrayfourthrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarrayfifthrow	{2}{2}{0}{0}{0}{0}{0}{0}
+                \othelloarraysixthrow	{2}{2}{0}{2}{0}{0}{0}{0}
+                \othelloarrayseventhrow	{2}{2}{2}{0}{0}{0}{2}{2}
+                \othelloarrayeighthrow	{0}{0}{0}{0}{0}{0}{0}{0}
+    \end{othelloboard} \end{center} \end{minipage}
+
+    \vspace{0.8em}
+
+    \begin{minipage}[c]{0.32\linewidth} \begin{center} \begin{othelloboard}{0.66}
+                \othelloarrayfirstrow	{1}{1}{0}{1}{1}{1}{1}{1}
+                \othelloarraysecondrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarraythirdrow	{0}{0}{0}{2}{2}{0}{0}{0}
+                \othelloarrayfourthrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarrayfifthrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarraysixthrow	{0}{0}{0}{0}{1}{0}{0}{0}
+                \othelloarrayseventhrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarrayeighthrow	{0}{0}{0}{0}{2}{0}{0}{0}
+    \end{othelloboard} \end{center} \end{minipage}
+    \begin{minipage}[c]{0.32\linewidth} \begin{center} \begin{othelloboard}{0.66}
+                \othelloarrayfirstrow	{1}{1}{1}{1}{1}{1}{1}{1}
+                \othelloarraysecondrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarraythirdrow	{0}{0}{2}{2}{2}{0}{0}{0}
+                \othelloarrayfourthrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarrayfifthrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarraysixthrow	{0}{0}{0}{0}{1}{0}{0}{0}
+                \othelloarrayseventhrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarrayeighthrow	{0}{0}{0}{2}{0}{2}{0}{0}
+    \end{othelloboard} \end{center} \end{minipage}
+    \begin{minipage}[c]{0.32\linewidth} \begin{center} \begin{othelloboard}{0.66}
+                \othelloarrayfirstrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarraysecondrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarraythirdrow	{0}{1}{1}{1}{1}{1}{1}{0}
+                \othelloarrayfourthrow	{0}{0}{0}{0}{0}{1}{1}{0}
+                \othelloarrayfifthrow	{0}{2}{2}{0}{0}{0}{0}{0}
+                \othelloarraysixthrow	{0}{0}{0}{0}{0}{2}{2}{0}
+                \othelloarrayseventhrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarrayeighthrow	{0}{0}{0}{0}{0}{0}{0}{0}
+    \end{othelloboard} \end{center} \end{minipage}
+
+    \vspace{0.8em}
+
+    \begin{minipage}[c]{0.32\linewidth} \begin{center} \begin{othelloboard}{0.66}
+                \othelloarrayfirstrow	{1}{1}{0}{1}{1}{0}{1}{1}
+                \othelloarraysecondrow	{0}{0}{0}{1}{1}{0}{0}{0}
+                \othelloarraythirdrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarrayfourthrow	{1}{0}{2}{2}{2}{2}{0}{0}
+                \othelloarrayfifthrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarraysixthrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarrayseventhrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarrayeighthrow	{0}{0}{0}{0}{0}{0}{0}{0}
+    \end{othelloboard} \end{center} \end{minipage}
+    \begin{minipage}[c]{0.32\linewidth} \begin{center} \begin{othelloboard}{0.66}
+                \othelloarrayfirstrow	{1}{1}{1}{1}{1}{0}{1}{1}
+                \othelloarraysecondrow	{0}{0}{0}{0}{0}{0}{1}{1}
+                \othelloarraythirdrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarrayfourthrow	{1}{0}{0}{0}{2}{2}{2}{2}
+                \othelloarrayfifthrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarraysixthrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarrayseventhrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarrayeighthrow	{0}{0}{0}{0}{0}{0}{0}{0}
+    \end{othelloboard} \end{center} \end{minipage}
+    \begin{minipage}[c]{0.32\linewidth} \begin{center} \begin{othelloboard}{0.66}
+                \othelloarrayfirstrow	{1}{0}{0}{1}{1}{0}{0}{1}
+                \othelloarraysecondrow	{1}{0}{0}{1}{1}{0}{0}{1}
+                \othelloarraythirdrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarrayfourthrow	{0}{0}{0}{2}{2}{0}{0}{0}
+                \othelloarrayfifthrow	{0}{0}{0}{2}{2}{0}{0}{0}
+                \othelloarraysixthrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarrayseventhrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarrayeighthrow	{0}{0}{0}{0}{0}{0}{0}{0}
+    \end{othelloboard} \end{center} \end{minipage}
+
+    \vspace{0.8em}
+
+    \begin{minipage}[c]{0.32\linewidth} \begin{center} \begin{othelloboard}{0.660}
+                \othelloarrayfirstrow	{1}{1}{1}{0}{0}{1}{1}{0}
+                \othelloarraysecondrow	{1}{0}{0}{0}{0}{1}{1}{0}
+                \othelloarraythirdrow	{0}{2}{0}{0}{0}{0}{0}{0}
+                \othelloarrayfourthrow	{0}{0}{0}{1}{1}{1}{1}{0}
+                \othelloarrayfifthrow	{0}{1}{0}{0}{2}{0}{0}{0}
+                \othelloarraysixthrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarrayseventhrow	{0}{2}{2}{0}{2}{2}{0}{0}
+                \othelloarrayeighthrow	{0}{0}{0}{0}{0}{0}{0}{0}
+    \end{othelloboard} \end{center} \end{minipage}
+    \begin{minipage}[c]{0.32\linewidth} \begin{center} \begin{othelloboard}{0.660}
+                \othelloarrayfirstrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarraysecondrow	{0}{0}{0}{1}{0}{1}{0}{0}
+                \othelloarraythirdrow	{1}{1}{1}{1}{1}{1}{1}{1}
+                \othelloarrayfourthrow	{1}{1}{1}{0}{0}{0}{1}{1}
+                \othelloarrayfifthrow	{0}{0}{0}{2}{2}{2}{0}{0}
+                \othelloarraysixthrow	{0}{0}{2}{0}{0}{0}{2}{0}
+                \othelloarrayseventhrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarrayeighthrow	{0}{0}{0}{0}{0}{0}{0}{0}
+    \end{othelloboard} \end{center} \end{minipage}
+    \begin{minipage}[c]{0.32\linewidth} \begin{center} \begin{othelloboard}{0.66}
+                \othelloarrayfirstrow	{1}{1}{0}{1}{1}{0}{0}{0}
+                \othelloarraysecondrow	{1}{1}{1}{1}{1}{0}{1}{0}
+                \othelloarraythirdrow	{0}{0}{0}{0}{1}{1}{0}{0}
+                \othelloarrayfourthrow	{0}{2}{2}{2}{1}{1}{1}{0}
+                \othelloarrayfifthrow	{0}{0}{0}{0}{2}{2}{2}{0}
+                \othelloarraysixthrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarrayseventhrow	{0}{0}{0}{0}{0}{0}{0}{0}
+                \othelloarrayeighthrow	{0}{0}{0}{0}{0}{0}{0}{0}
+    \end{othelloboard} \end{center} \end{minipage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\appendix
+
+%%% PAG 6 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+    \section{Strategy guidelines from the game designer}
+
+    For the sake of completeness, we reproduce in this appendix the strategic advice that the game designer included in his computer implementation of \BT (currently available at http://zillionsofgames.com/).
+
+    \vspace{2em}
+
+    \emph{Several tactical elements of the game stand out.  The progress
+        of a piece cannot be thwarted by a single defender.  It will always
+        be possible either to move entirely around the range of the defender
+        or to move to the square immediately in front (which is immune from
+        capture) and then `skirt` diagonally around.  A proper defense requires
+        that pieces work in tandem.  Skirting is not possible, for example, when
+        two defenders are front-to-back or side-to-side.  Diagonal formations are
+        easy to skirt through and should be used cautiously.}
+
+    \emph{Basic strategy consists of occupying the center, where pieces have maximum
+        coverage, and keeping some defenders far enough back so that they can guard
+        multiple attack routes.  As pieces progress, defensive coverage diminishes
+        and the player becomes vulnerable to flanking maneuvers.  Offensively, you
+        want to force enemy defenders to move forward in response to threats from
+        one direction, thereby opening up attacks from another direction.  It is
+        useful to have multiple forward pieces (`runners`) within striking distance
+        of the far rank.  Loosely speaking, a runner is a piece that has progressed
+        across the board as far as any enemy piece has.  If defensive positions
+        collapse and the game becomes a simple race, a runner will win the game if
+        it takes the first step.}
+
+    \emph{A common formation is a column of friendly pieces.  The forward piece can
+        serve as a runner, the rear piece offers wide defensive coverage, and the
+        entire formation cannot be skirted.  A column may prove overwhelming when
+        aimed at a depleted portion of the enemy side.  Phalanxes, pieces arranged
+        side to side, are also common and are present in the initial array.
+        Phalanxes cannot be skirted, and if one piece moves straight ahead, it will
+        land on a guarded square.}
+
+    \emph{Pieces arranged in columns or phalanxes do not protect one another.  This
+        points to a fundamental tension in the game.  Pieces protect one another
+        only along diagonals but diagonal formations are the easiest to penetrate.
+        In many cases, a player is better off leaving pieces unguarded.}
+
+    \emph{Breakthrough is ultimately an offensive game.  Defensive positions will
+        collapse as pieces move forward (as they must), and at some point a
+        weakness, perhaps previously unidentified, will be exploited by a runner.
+        Because the pieces have no choice but to move forward, the game develops
+        quickly.  Draws are impossible.}
+
+    \vspace{5em}
+
+    \begin{center}
+        Breakthrough rules and the content of this page \raisebox{1pt}{{\sffamily\textcopyright}} 2000 W. D. Troyka.
+
+        The rest of the document is licensed as \hspace{-0.35em}\raisebox{2pt}{\cc\hspace{-1em}\ccby}\hspace{-0.65em} 2015 Carlos Luna-Mota.
+    \end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document} 
